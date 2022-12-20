@@ -1,7 +1,7 @@
  docker-compose.yml
 version: '3.7'
 services:
-  repo-web:
+  web:
     image: 'gitlab/gitlab-ce:latest'
     restart: always
     hostname: 'localhost'
@@ -23,7 +23,7 @@ services:
     container_name: gitlab-runner
     restart: always
     depends_on:
- - repo-web
+ - web
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - '/home/devops/deployment/gitlab/gitlab-runner:/etc/gitlab-runner'
